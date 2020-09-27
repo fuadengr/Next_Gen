@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "71df5b41-d014-4e87-b233-12ae836476e9",
+		"name": "Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register_company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "efe25ed9-4258-4d9b-aff8-9edbb71b821f",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Techserve4U\",\r\n\t\"address\": \"Warren, Michigan\",\r\n\t\"tin\": \"12345678\"\r\n}"
+				},
+				"url": {
+					"raw": "{{authUrl}}/api/v1/panel/auth/register-company",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"panel",
+						"auth",
+						"register-company"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
